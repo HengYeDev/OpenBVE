@@ -1545,6 +1545,14 @@ namespace OpenBve
 									case Translations.Command.SecurityO:
 									case Translations.Command.SecurityP:
 #pragma warning restore 618
+									case Translations.Command.Headlights:
+										if (TrainManager.PlayerTrain.Plugin != null)
+										{
+											TrainManager.PlayerTrain.Plugin.KeyDown(
+												Translations.SecurityToVirtualKey(Interface.CurrentControls[i].Command));
+										}
+										TrainManager.PlayerTrain.SafetySystems.Headlights.ChangeState();
+										break;
 									case Translations.Command.FillFuel:
 									case Translations.Command.LiveSteamInjector:
 									case Translations.Command.ExhaustSteamInjector:
